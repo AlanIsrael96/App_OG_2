@@ -1,0 +1,353 @@
+/* =============================================================================
+   DATA ANALYTICS FOR OIL & GAS | SPE Ecuador Section
+   Hoja de estilos — paleta técnica de instrumentación petrolera.
+   Tokens: fondo petróleo profundo, paneles acero, acento ámbar de campo.
+   ============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --bg-deep: #0A1A24;
+    --bg-panel: #10293A;
+    --bg-panel-alt: #0D2130;
+    --border-steel: #22415A;
+    --accent: #D9822B;
+    --accent-soft: rgba(217, 130, 43, 0.16);
+    --good: #4FAE7C;
+    --good-soft: rgba(79, 174, 124, 0.16);
+    --warn: #E0B94D;
+    --warn-soft: rgba(224, 185, 77, 0.16);
+    --bad: #D1544A;
+    --bad-soft: rgba(209, 84, 74, 0.16);
+    --text-primary: #EAF2F6;
+    --text-muted: #9FB4C2;
+    --text-faint: #6C8494;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ---------- Fondo general de la app ---------- */
+.stApp {
+    background-color: var(--bg-deep);
+    background-image:
+        repeating-linear-gradient(0deg, rgba(234, 242, 246, 0.025) 0px, rgba(234, 242, 246, 0.025) 1px, transparent 1px, transparent 32px),
+        repeating-linear-gradient(90deg, rgba(234, 242, 246, 0.025) 0px, rgba(234, 242, 246, 0.025) 1px, transparent 1px, transparent 32px);
+    font-family: var(--font-body);
+    color: var(--text-primary);
+}
+
+.block-container {
+    max-width: 1100px;
+    padding-top: 3.2rem;
+    padding-bottom: 4rem;
+}
+
+h1, h2, h3 { font-family: var(--font-display); color: var(--text-primary); }
+p, span, div, label { font-family: var(--font-body); }
+
+/* ---------- Sidebar ---------- */
+section[data-testid="stSidebar"] {
+    background-color: var(--bg-panel-alt);
+    border-right: 1px solid var(--border-steel);
+}
+section[data-testid="stSidebar"] .block-container { padding-top: 1.6rem; }
+
+.sidebar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-steel);
+}
+.sidebar-brand img { width: 108px; }
+.sidebar-brand-text {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Navegación principal (radio) estilizada como lista de tabs verticales */
+section[data-testid="stSidebar"] div[role="radiogroup"] {
+    gap: 0.35rem;
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.55rem 0.8rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
+    background: rgba(217, 130, 43, 0.08);
+    border-color: var(--border-steel);
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label span p {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary) !important;
+}
+
+/* ---------- Tabs (Producción / Perforación / Reservorios) ---------- */
+button[data-baseweb="tab"] {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-muted);
+}
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--accent);
+}
+div[data-baseweb="tab-highlight"] { background-color: var(--accent); }
+div[data-baseweb="tab-border"] { background-color: var(--border-steel); }
+
+/* ---------- Contenedores con borde (paneles de entrada/resultados) ---------- */
+div[data-testid="stVerticalBlockBorderWrapper"] > div {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-steel);
+    border-radius: 10px;
+}
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-radius: 10px;
+}
+
+/* ---------- Inputs ---------- */
+div[data-testid="stNumberInput"] input,
+div[data-testid="stTextInput"] input {
+    background-color: var(--bg-panel-alt);
+    color: var(--text-primary);
+    border: 1px solid var(--border-steel);
+    font-family: var(--font-mono);
+}
+div[data-testid="stNumberInput"] label,
+div[data-testid="stTextInput"] label,
+div[data-testid="stSlider"] label {
+    font-family: var(--font-body);
+    color: var(--text-muted) !important;
+    font-size: 0.85rem;
+}
+
+/* Botones */
+.stButton button, .stFormSubmitButton button {
+    background: var(--accent);
+    color: #14202A;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    transition: filter 0.15s ease, transform 0.15s ease;
+}
+.stButton button:hover, .stFormSubmitButton button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+/* ---------- Section header (barra de acento lateral) ---------- */
+.section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin: 0.4rem 0 1.4rem 0;
+}
+.section-accent-bar {
+    width: 4px;
+    min-width: 4px;
+    height: 46px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-top: 4px;
+}
+.section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.15rem;
+}
+.section-title { margin: 0; font-size: 1.5rem; }
+.section-desc { color: var(--text-muted); margin: 0.3rem 0 0 0; font-size: 0.92rem; max-width: 62ch; }
+
+/* ---------- Nameplate (placa de identificación - Home) ---------- */
+.nameplate {
+    background: linear-gradient(160deg, var(--bg-panel) 0%, var(--bg-panel-alt) 100%);
+    border: 1px solid var(--border-steel);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.6rem;
+}
+.nameplate-title {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+}
+.nameplate-subtitle {
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+}
+.nameplate-divider {
+    height: 1px;
+    background: var(--border-steel);
+    margin: 1rem 0 0.9rem 0;
+}
+.nameplate-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.28rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    border-bottom: 1px dashed rgba(234, 242, 246, 0.08);
+}
+.nameplate-row:last-child { border-bottom: none; }
+.nameplate-key { color: var(--text-faint); letter-spacing: 0.03em; }
+.nameplate-val { color: var(--text-primary); font-weight: 500; }
+
+/* ---------- Exercise cards (Home) ---------- */
+.exercise-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+.exercise-card {
+    flex: 1 1 260px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-steel);
+    border-radius: 10px;
+    padding: 1.2rem 1.3rem;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.exercise-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+.exercise-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.7rem; }
+.exercise-icon { font-size: 1.5rem; }
+.exercise-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    padding: 0.12rem 0.55rem;
+}
+.exercise-title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin-bottom: 0.35rem; }
+.exercise-desc { color: var(--text-muted); font-size: 0.87rem; line-height: 1.5; }
+
+/* ---------- Metric cards (resultados) ---------- */
+.metric-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin: 0.6rem 0 1.1rem 0; }
+.metric-card {
+    flex: 1 1 150px;
+    background: var(--bg-panel-alt);
+    border: 1px solid var(--border-steel);
+    border-radius: 10px;
+    padding: 0.95rem 1.1rem;
+}
+.metric-card.accent-good { border-color: var(--good); background: linear-gradient(180deg, var(--good-soft), var(--bg-panel-alt) 60%); }
+.metric-card.accent-warn { border-color: var(--warn); background: linear-gradient(180deg, var(--warn-soft), var(--bg-panel-alt) 60%); }
+.metric-card.accent-bad  { border-color: var(--bad);  background: linear-gradient(180deg, var(--bad-soft), var(--bg-panel-alt) 60%); }
+.metric-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+.metric-value {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.metric-unit { font-size: 0.85rem; color: var(--text-muted); margin-left: 0.25rem; }
+.metric-help { font-size: 0.76rem; color: var(--text-faint); margin-top: 0.3rem; }
+
+/* ---------- Status badge ---------- */
+.status-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+.status-good { background: var(--good-soft); color: var(--good); border: 1px solid var(--good); }
+.status-warn { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+.status-bad  { background: var(--bad-soft);  color: var(--bad);  border: 1px solid var(--bad); }
+.status-neutral { background: rgba(159,180,194,0.12); color: var(--text-muted); border: 1px solid var(--border-steel); }
+
+/* ---------- Gauge strip (franja de instrumento) ---------- */
+.gauge-wrap { margin: 0.8rem 0 1.4rem 0; }
+.gauge-track {
+    position: relative;
+    display: flex;
+    height: 14px;
+    border-radius: 7px;
+    overflow: visible;
+    border: 1px solid var(--border-steel);
+    margin-bottom: 2.4rem;
+}
+.gauge-zone:first-child { border-radius: 6px 0 0 6px; }
+.gauge-zone:last-child { border-radius: 0 6px 6px 0; }
+.gauge-marker {
+    position: absolute;
+    top: -6px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gauge-marker-line {
+    width: 3px;
+    height: 26px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(234, 242, 246, 0.6);
+}
+.gauge-marker-tag {
+    margin-top: 0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-primary);
+    background: var(--bg-deep);
+    border: 1px solid var(--border-steel);
+    padding: 0.1rem 0.45rem;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+.gauge-legend { display: flex; gap: 1rem; margin-top: 2.1rem; flex-wrap: wrap; }
+.gauge-legend-item {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+.gauge-legend-item i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+
+/* ---------- Footer ---------- */
+.app-footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-steel);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* Ocultar elementos por defecto de Streamlit que no aportan a la identidad */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
