@@ -12,12 +12,9 @@ import streamlit.components.v1 as components
 
 from utils.ui_components import nameplate, exercise_card, section_header
 
-# ---------------------------------------------------------------------------
-# Datos personalizables del participante.
-# EDITAR estos valores con los datos reales antes de publicar la aplicación.
-# ---------------------------------------------------------------------------
-PARTICIPANTE = "Alan López"          # <-- reemplazar por el nombre completo
-TITULO_APP = "App Oil & Gas"    # <-- título de la aplicación
+
+PARTICIPANTE = "Alan López"         
+TITULO_APP = "App Oil & Gas"   
 PROGRAMA = "Bootcamp Data Analytics for Oil & Gas"
 INSTITUCION = "SPE Ecuador Section"
 
@@ -57,7 +54,7 @@ def render():
             eyebrow="PROPÓSITO TÉCNICO",
             title="¿Qué hace esta aplicación?",
             description=(
-                "Convierte tres modelos clásicos de ingeniería de yacimientos, "
+                "Convierte tres modelos clásicos de ingeniería de producción, "
                 "perforación y reservorios en calculadoras interactivas: cada "
                 "resultado se recalcula en tiempo real y se acompaña de una "
                 "visualización gráfica y un indicador de condición operativa."
@@ -73,15 +70,15 @@ def render():
     ]
     st.markdown('<div class="exercise-row">' + "".join(cards) + "</div>", unsafe_allow_html=True)
 
-    st.markdown(
-        section_header(
-            eyebrow="PANEL EN VIVO",
-            title="Estado del sistema",
-            description="Microinteracción en JavaScript embebida con streamlit.components.v1.html.",
-        ),
-        unsafe_allow_html=True,
-    )
-    _render_status_widget()
+    #st.markdown(
+        #section_header(
+            #eyebrow="PANEL EN VIVO",
+            #title="Estado del sistema",
+            #description="Microinteracción en JavaScript embebida con streamlit.components.v1.html.",
+        #),
+        #unsafe_allow_html=True,
+    #)
+    #_render_status_widget()
 
     st.markdown(
         '<div class="app-footer">'
@@ -92,7 +89,7 @@ def render():
     )
 
 
-def _render_status_widget():
+#def _render_status_widget():
     """
     Componente HTML/JS embebido (streamlit.components.v1.html).
     Interacción 1: contador animado que cuenta de 0 al valor final al cargar.
