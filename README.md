@@ -12,7 +12,6 @@ Incluye tres calculadoras técnicas:
 | ⛏️ Perforación | Presión hidrostática del lodo vs. presión de formación |
 | 🪨 Reservorios | Estimación volumétrica del POES y volumen recuperable |
 
-## 1. Antes de publicar: personaliza tus datos
 
 
 
@@ -70,9 +69,4 @@ git push -u origin main
 4. Clic en **Deploy**. En un par de minutos obtendrás la URL pública de tu app.
 5. Abre la URL en un navegador externo (o modo incógnito) para confirmar que funciona correctamente.
 
-## 6. Evidencias para el informe PDF
 
-Recuerda que el entregable final es **un único PDF** con: tus datos, el
-enlace al repositorio de GitHub, el enlace a la app publicada, y capturas de
-pantalla de Home, Ejercicios (tabs) y cada uno de los tres módulos con sus
-parámetros y resultados.
