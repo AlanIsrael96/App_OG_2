@@ -14,11 +14,11 @@ Incluye tres calculadoras técnicas:
 
 ## 1. Antes de publicar: personaliza tus datos
 
-Edita `views/home.py` y reemplaza estas líneas con tus datos reales:
+
 
 ```python
-PARTICIPANTE = "Nombre Apellido"          # tu nombre completo
-TITULO_APP = "Panel Técnico Oil & Gas"    # título de tu aplicación
+PARTICIPANTE = Alan Israel López Males
+TITULO_APP = APP 1 Oil & Gas
 ```
 
 ## 2. Estructura del proyecto
